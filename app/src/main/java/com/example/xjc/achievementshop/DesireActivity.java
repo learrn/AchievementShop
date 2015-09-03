@@ -1,35 +1,59 @@
 package com.example.xjc.achievementshop;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by XJC on 2015/8/31.
  */
-public class DesireActivity extends Activity{
-    private List<Desire> desireList = new ArrayList<Desire>();
+public class DesireActivity extends Activity {
+
+    private Button change;
+    private AchievementDB achievementDB;
+    private SQLiteDatabase dbReader;
+    private ListView listview;
+    private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.desire);
-        initDesire();
-        DesireAdapter adapter=new DesireAdapter(DesireActivity.this,R.layout.desire_item,desireList);
-        ListView listview =(ListView)findViewById(R.id.List_desire);
-        listview.setAdapter(adapter);
+        achievementDB = new AchievementDB(this);
+        dbReader = achievementDB.getReadableDatabase();
+        listview =(ListView)findViewById(R.id.List_desire);
+        change = (Button)findViewById(R.id.but_change1);
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 =new Intent(DesireActivity.this,Desire_add.class);
+                startActivity(intent1);
+            }
+        });
+    }
+    public void desSelectDB(){
+        this.cursor=this.dbReader.query(AchievementDB.TABLE_NAME2,null,null,null,null,null,null);
+        DesireAdapter desireAdapter = new DesireAdapter(this,this.cursor);
+        this.listview.setAdapter(desireAdapter);
     }
 
-    private void initDesire() {
-        Desire thing1 = new Desire("玩1小时游戏",R.id.desire_button);
-        desireList.add(thing1);
-        Desire thing2 = new Desire("玩2小时游戏",R.id.desire_button);
-        desireList.add(thing2);
-        Desire thing3 = new Desire("玩3小时游戏",R.id.desire_button);
-        desireList.add(thing3);
-        Desire thing4 = new Desire("玩4小时游戏",R.id.desire_button);
-        desireList.add(thing4);
+    @Override
+    protected void onResume(){
+        super.onResume();
+        desSelectDB();
     }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        cursor.close();
+    }
+
+
+
 }
