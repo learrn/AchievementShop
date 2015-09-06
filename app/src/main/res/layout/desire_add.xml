@@ -36,7 +36,8 @@
             android:id="@+id/point_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="实现该目标所需成就值(数字)"
+            android:hint="实现该目标所需成就值"
+            android:numeric="integer"
             android:textSize="24sp"/>
     </LinearLayout>
     <LinearLayout

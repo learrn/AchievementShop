@@ -48,23 +48,16 @@ public class DesireAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.thing = (TextView) convertView.findViewById(R.id.desire_thing);
             holder.point = (TextView) convertView.findViewById(R.id.desire_point);
-            holder.bt = (Button) convertView.findViewById(R.id.desire_button);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.thing.setText(getDate().get(position).get("ItemTitle").toString());
         holder.point.setText(getDate().get(position).get("ItemPoint").toString());
-        holder.bt.setText(getDate().get(position).get("BtTitle").toString());
-        holder.bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("AchievementAdapter", "你点击了欲望按钮" + position);
-            }
-        });
         return convertView;
 
     }
+
 
     private final class ViewHolder {
         public TextView thing;
@@ -80,8 +73,7 @@ public class DesireAdapter extends BaseAdapter {
             String ItemPoint = cursor.getString(cursor.getColumnIndex("Des_point"));
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("ItemTitle", ItemTitle);
-            map.put("ItemPoint", ItemPoint);
-            map.put("BtTitle", "兑换");
+            map.put("ItemPoint", ItemPoint+"分");
             listItem.add(map);
         }
         return listItem;

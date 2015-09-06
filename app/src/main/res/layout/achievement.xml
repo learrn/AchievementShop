@@ -29,11 +29,10 @@
         android:id="@+id/text_point"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="你拥有的成就值:200"
         android:textSize="20sp" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/List_achievement"></ListView>
+        android:id="@+id/List_achievement"/>
 </LinearLayout>
