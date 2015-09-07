@@ -3,60 +3,41 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/title"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="目    标"
+            android:gravity="center"
+            android:layout_width="97dp"
+            android:layout_height="match_parent"
+            android:text="@string/欲望库添加目标名"
             android:textSize="24sp"/>
         <EditText
-            android:layout_weight="4"
             android:id="@+id/thing_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="你想设定的目标"
-            android:textSize="24sp"/>
+            android:hint="@string/欲望库目标添加提示"
+            android:textSize="20sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="成就值"
+            android:gravity="center"
+            android:layout_width="97dp"
+            android:layout_height="match_parent"
+            android:text="@string/欲望库添加成就值"
             android:textSize="24sp"/>
         <EditText
-            android:layout_weight="4"
             android:id="@+id/point_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="实现该目标所需成就值"
+            android:hint="@string/欲望库成就值添加提示"
             android:numeric="integer"
-            android:textSize="24sp"/>
+            android:textSize="20sp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/sure_add"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="确定"
-            android:textSize="34sp"/>
-        <Button
-            android:id="@+id/cancel_add"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="取消"
-            android:textSize="34sp"/>
-    </LinearLayout>
+
 </LinearLayout>

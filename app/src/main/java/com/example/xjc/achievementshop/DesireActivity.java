@@ -22,12 +22,14 @@ import android.widget.Toast;
 public class DesireActivity extends Activity {
 
     private Button change;
+    private Button before;
     private AchievementDB achievementDB;
     private SQLiteDatabase dbReader;
     private ListView listview;
     private TextView sum;
     private Cursor cursor;
     private int index=0,sumPoint=0;
+    private TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +40,20 @@ public class DesireActivity extends Activity {
         achievementDB = new AchievementDB(this);
         dbReader = achievementDB.getReadableDatabase();
         listview =(ListView)findViewById(R.id.List_desire);
+        title=(TextView) findViewById(R.id.titleText);
+        title.setText("欲望库");
         sum = (TextView)findViewById(R.id.text_point);
         sum.setText("你拥有的成就值:"+sumPoint);
-        change = (Button)findViewById(R.id.but_change1);
+        before = (Button)findViewById(R.id.before);
+        before.setText("返回");
+        before.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        change = (Button)findViewById(R.id.next);
+        change.setText("添加");
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +76,6 @@ public class DesireActivity extends Activity {
                         String thingPoint = cursor.getString(cursor.getColumnIndex(AchievementDB.Des_point));
                         sumPoint -=Integer.parseInt(thingPoint);
                         if (sumPoint<0){
-                            sumPoint +=Integer.parseInt(thingPoint);
                             Toast.makeText(DesireActivity.this, "你的成就值不足",
                                     Toast.LENGTH_SHORT).show();
                         }else {

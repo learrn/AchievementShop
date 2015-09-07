@@ -9,13 +9,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/desire_thing"
-        android:text="去天河公园吃饭"
         android:textSize="24sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/desire_point"
-        android:text="3分"
         android:textSize="24sp"/>
 
 </LinearLayout>

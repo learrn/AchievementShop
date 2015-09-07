@@ -5,4 +5,15 @@
     <string name="action_settings">Settings</string>
     <string name="成就库">成就库</string>
     <string name="欲望库">欲望库</string>
+    <string name="成就商店">成就商店</string>
+    <string name="欲望库标题">欲望库</string>
+    <string name="帮助">帮助</string>
+    <string name="成就库分数添加提示">完成该任务获得成就值</string>
+    <string name="成就库任务添加提示">你想设定的任务</string>
+    <string name="成就库添加任务名">任务名</string>
+    <string name="成就库添加成就值">成就值</string>
+    <string name="欲望库添加成就值">成就值</string>
+    <string name="欲望库目标添加提示">你想设定的目标</string>
+    <string name="欲望库成就值添加提示">实现该目标所需成就值</string>
+    <string name="欲望库添加目标名">目标名</string>
 </resources>

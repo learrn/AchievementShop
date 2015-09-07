@@ -21,10 +21,12 @@ import android.widget.TextView;
 public class AchievementActivity extends Activity {
 
     private Button change;
+    private Button before;
     private AchievementDB achievementDB;
     private SQLiteDatabase dbReader;
     private ListView listview;
     private TextView sum;
+    private TextView title;
     private Cursor cursor;
     int index=0,sumPoint=0;
     @Override
@@ -37,9 +39,20 @@ public class AchievementActivity extends Activity {
         achievementDB = new AchievementDB(this);
         dbReader = achievementDB.getReadableDatabase();
         listview =(ListView)findViewById(R.id.List_achievement);
+        title=(TextView) findViewById(R.id.titleText);
+        title.setText("成就库");
         sum = (TextView)findViewById(R.id.text_point);
         sum.setText("你拥有的成就值:"+sumPoint);
-        change = (Button)findViewById(R.id.but_change2);
+        before = (Button)findViewById(R.id.before);
+        before.setText("返回");
+        before.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 finish();
+            }
+        });
+        change = (Button)findViewById(R.id.next);
+        change.setText("添加");
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
