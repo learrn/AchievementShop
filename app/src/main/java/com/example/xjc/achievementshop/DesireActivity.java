@@ -74,11 +74,11 @@ public class DesireActivity extends Activity {
                         cursor = dbReader.query(AchievementDB.TABLE_NAME2, null, null, null, null, null, null);
                         cursor.moveToPosition(index);
                         String thingPoint = cursor.getString(cursor.getColumnIndex(AchievementDB.Des_point));
-                        sumPoint -=Integer.parseInt(thingPoint);
-                        if (sumPoint<0){
+                        if (sumPoint<Integer.parseInt(thingPoint)){
                             Toast.makeText(DesireActivity.this, "你的成就值不足",
                                     Toast.LENGTH_SHORT).show();
                         }else {
+                            sumPoint -=Integer.parseInt(thingPoint);
                             sum.setText("你拥有的成就值:"+sumPoint);
                         }
 
